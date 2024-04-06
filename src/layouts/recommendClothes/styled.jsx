@@ -7,8 +7,8 @@ export const CardList = styled.div`
   flex-direction: column;
   gap: 30px;
   width: 390px;
-  border: 1px solid #808080;
-  border-radius: 16px;
+  background: #ffffff;
+  border-radius: 8px 8px 0 0;
 `;
 
 export const Clothes = styled.div`
@@ -18,9 +18,20 @@ export const Clothes = styled.div`
   width 100%;
 `;
 
+export const Tip = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
 export const Accessory = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+`;
+
+export const Line = styled.div`
+  border-left: 1px solid #e0e4e9;
+  height: 120px;
 `;
