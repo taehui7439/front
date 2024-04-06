@@ -1,3 +1,4 @@
+import Navbar from '../navbar/navbar';
 import * as S from './style';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -18,8 +19,7 @@ const Header = () => {
             case '/home':
                 return (
                     <>
-                        <img src="images/icon_here.png" alt="Here" />
-                        <h2>서울시</h2>
+                        <Navbar />
                     </>
                 );
             case '/recommend':
