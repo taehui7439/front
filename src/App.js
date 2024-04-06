@@ -1,11 +1,10 @@
-import CardItem from "./components/card/item/cardItem";
+import RecommendWeather from "./layouts/recommendWeather/recommendWeather";
 
 function App() {
   return (
-    <div>
-      <h1>how-weather</h1>
-      <CardItem />
-    </div>
+    <>
+      <RecommendWeather />
+    </>
   );
 }
 
