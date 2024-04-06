@@ -1,5 +1,4 @@
 import React from "react";
-import styled from 'styled-components';
 import * as SC from './navbarStyle';
 
 const Navbar = () => {
@@ -10,12 +9,9 @@ const Navbar = () => {
 				<SC.NavLogo>
         </SC.NavLogo>
         <SC.NavLocation>
-					<img src="here.png"/>
+					<img src="here.png" alt="location"/>
           서울시 노원구
         </SC.NavLocation>
-        <SC.NavMenu>
-          <img src="gear.png"></img>
-        </SC.NavMenu>
       </SC.NavContainer>
     </SC.NavbarContainer>
   );
