@@ -18,6 +18,12 @@ export const Clothes = styled.div`
   width 100%;
 `;
 
+export const Tip = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
 export const Accessory = styled.div`
   display: flex;
   justify-content: center;

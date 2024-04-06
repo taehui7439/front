@@ -1,30 +1,28 @@
-import { useState } from "react";
 import RecommendClothes from "./layouts/recommendClothes/recommendClothes";
 
 function App() {
-  const [value, setValue] = useState();
-  const [temp, setTemp] = useState({
-    온도: null,
-    대기상태: "",
+  const info = {
+    성별: '남성',
+    나이: '10대',
+    체질: '평균',
+    날씨: '봄',
+    강수: false,
+    미세먼지: true,
+  }
+  /*
+  const [info, setInfo] = useState({
+    성별: '남성',
+    나이: '10대',
+    체질: '평균',
+    날씨: '봄',
+    강수: false,
+    미세먼지: true,
   });
-
-  const handleChange = (e) => {
-    //number로 형 변환
-    setValue(+e.target.value);
-  };
-
-  const handleClick = () => {
-    setTemp((prev) => ({
-      ...prev,
-      온도: value,
-    }));
-  };
+  */
 
   return (
     <div>
-      <RecommendClothes temp={temp} />
-      <input onChange={handleChange} />
-      <button onClick={handleClick}>확인</button>
+      <RecommendClothes info={info} />
     </div>
   );
 }

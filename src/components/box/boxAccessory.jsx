@@ -2,11 +2,12 @@ import TextP from "../text/textP";
 import { ACCESSORY_TEXT } from "../../utils/constant";
 import * as SC from "./styled";
 
-const BoxAccessory = ({ item }) => {
+const BoxAccessory = ({ item, info }) => {
   return (
     <SC.Box>
-      <TextP>{ACCESSORY_TEXT[item].first}</TextP>
-      <TextP>{ACCESSORY_TEXT[item].second}</TextP>
+      <TextP>{ACCESSORY_TEXT[item].제목}</TextP>
+      <TextP>{ACCESSORY_TEXT[item].나이[info.나이]}</TextP>
+      <TextP>{ACCESSORY_TEXT[item].체질[info.체질]}</TextP>
     </SC.Box>
   );
 };
