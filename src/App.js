@@ -1,12 +1,12 @@
-import CardItem from "./components/card/item/cardItem";
+import Codinator from "./components/Codinator";
 
 function App() {
   return (
-    <div>
-      <h1>how-weather</h1>
-      <CardItem />
-    </div>
-  );
+        <div>
+            <h1></h1>
+            <Codinator />
+        </div>
+    );
 }
 
 export default App;
