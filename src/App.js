@@ -1,12 +1,11 @@
-import Codinator from "./components/Codinator";
+import RecommendWeather from "./layouts/recommendWeather/recommendWeather";
 
 function App() {
   return (
-        <div>
-            <h1></h1>
-            <Codinator />
-        </div>
-    );
+    <>
+      <RecommendWeather />
+    </>
+  );
 }
 
 export default App;
