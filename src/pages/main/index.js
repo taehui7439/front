@@ -1,5 +1,6 @@
 import React from 'react';
 import RecommendClothes from '../../layouts/recommendClothes/recommendClothes';
+import Weather from '../../components/weather/weather';
 
 const MainPage = () => {
   const info = {
@@ -13,6 +14,7 @@ const MainPage = () => {
 
   return (
     <>
+      <Weather />
       <RecommendClothes info={info} />
     </>
   );
