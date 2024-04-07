@@ -17,6 +17,12 @@ export const Fonts = {
     fontWeight: '600', // SemiBold
     lineHeight: '20px',
   },
+  'font-medium-14': {
+    fontSize: '14px',
+    fontFamily: 'Pretendard',
+    fontWeight: '500', // Medium
+    lineHeight: '18px',
+  },
   'font-medium-16': {
     fontSize: '16px',
     fontFamily: 'Pretendard',
@@ -33,12 +39,6 @@ export const Fonts = {
     fontSize: '14px',
     fontFamily: 'Pretendard',
     fontWeight: '600', // SemiBold
-    lineHeight: '18px',
-  },
-  'font-medium-14': {
-    fontSize: '14px',
-    fontFamily: 'Pretendard',
-    fontWeight: '500', // Medium
     lineHeight: '18px',
   },
   'font-regular-14': {

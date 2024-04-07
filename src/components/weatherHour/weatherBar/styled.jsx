@@ -8,7 +8,7 @@ export const WeatherBarBox = styled.div`
 export const WeatherBar = styled.div`
   background: ${Colors.line02};
   width: 6px;
-  height: 50%;
+  height: 40px;
   animation: 2s;
   border-radius: 9999px 9999px 0 0;
 `;

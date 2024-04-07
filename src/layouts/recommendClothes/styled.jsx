@@ -27,10 +27,7 @@ export const Clothes = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width 100%;
-  @media only screen and (max-width: 389px) {
-    flex-wrap: wrap;
-  }
+  width: 100%;
 `;
 
 export const Tip = styled.div`

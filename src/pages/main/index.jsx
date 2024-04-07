@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RecommendClothes from '../../layouts/recommendClothes/recommendClothes';
-import WeatherHour from '../../components/weatherHour/weatherHour';
+import WeatherTime from '../../layouts/weatherTime/weatherTime';
 import { WeatherApi } from '../../apis/weatherApi';
 
 const MainPage = () => {
@@ -14,11 +14,9 @@ const MainPage = () => {
     fetchData();
   }, []);
 
-  console.log(weather);
-
   return (
     <>
-      <WeatherHour />
+      {weather && <WeatherTime weather={weather} />}
       {weather && <RecommendClothes weather={weather} />}
     </>
   );
