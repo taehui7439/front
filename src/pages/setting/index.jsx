@@ -1,7 +1,7 @@
 import React from 'react';
 import * as SC from './styled'
 import RadioBox from './RadioBox';
-
+import { SubmitBox } from "../../components/SubmitBox/SubmitBox";
 
 const SettingPage = () => {
     return (
@@ -19,7 +19,7 @@ const SettingPage = () => {
                     <SC.Title>체질</SC.Title>
                     <RadioBox list={["더위를 많이타요", "평균", "추위를 많이타요"]} keyword="body" column={true}></RadioBox>
                 </SC.Section>
-                <SC.SubmitBox>완료</SC.SubmitBox>
+                <SubmitBox>완료</SubmitBox>
             </SC.Main>
         </form>
     );

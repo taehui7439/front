@@ -16,13 +16,13 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<IntroPage />} />
         <Route element={<Layout />}>
+          <Route path="/" element={<IntroPage />} />
           <Route path="/home" element={<MainPage />} />
           <Route path="/recommend" element={<RecommendPage />} />
           <Route path="/setting" element={<SettingPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

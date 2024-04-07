@@ -1,26 +1,20 @@
-import React ,{useState}from 'react';
+import React from 'react';
 import CheckIcon from './CheckIcon';
 import * as SC from "./styled"
+import { SubmitBox } from "../../components/SubmitBox/SubmitBox";
 
 const IntroPage = () => {
-    const [gender, setGender] = useState({male: false, feMale: false})
-
-    const genderHandler = (key) => {
-        setGender(!gender[key])
-    }
-
-
     return (
         <SC.Main>
             <SC.Section>
                 <SC.Title>성별을 알려주세요</SC.Title>
                 <SC.Article>
-                    <SC.CheckBox onClick={() => genderHandler("male")} isClick={gender["male"]}>
+                    <SC.CheckBox>
                         <CheckIcon></CheckIcon>
                         <img src="/images/남성.png" alt="남성" />
                         <SC.ContentText>남성</SC.ContentText>
                     </SC.CheckBox>
-                    <SC.CheckBox onClick={() => genderHandler("male")} isClick={gender["male"]}>
+                    <SC.CheckBox>
                         <CheckIcon></CheckIcon>
                         <img src="/images/여성.png" alt="여성" />
                         <SC.ContentText>여성</SC.ContentText>
@@ -61,7 +55,7 @@ const IntroPage = () => {
                     </SC.CheckBox>
                 </SC.Article>
             </SC.Section>
-            <SC.SubmitBox>완료</SC.SubmitBox>
+            <SubmitBox>완료</SubmitBox>
         </SC.Main>
     )
 };
