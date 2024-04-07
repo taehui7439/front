@@ -1,4 +1,5 @@
 import Navbar from '../navbar/navbar';
+
 import * as S from './style';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -20,6 +21,7 @@ const Header = () => {
                 return (
                     <>
                         <Navbar />
+
                     </>
                 );
             case '/recommend':
