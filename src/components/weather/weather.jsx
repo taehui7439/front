@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import * as SC from './weatherStyle';
 import { Fonts } from '../../tokens/Fonts';
 

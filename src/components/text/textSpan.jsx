@@ -1,6 +1,6 @@
-import * as SC from "./styled";
+import * as SC from './styled';
 
-export const TextSpan = ({ children }) => {
+const TextSpan = ({ children }) => {
   return <SC.Span>{children}</SC.Span>;
 };
 
