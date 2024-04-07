@@ -1,12 +1,12 @@
 # [육사시미] How-Weather _ 테오의 스프린트 17기
 
-# 팀 로고
+## 팀 로고
 <p align="center">
  <img width="465" alt="테오의 스프린트 17기  6조" src="https://github.com/joshyeom/how-weather-front/assets/105287510/27b09e0d-d7db-422f-89a1-b9a70568f503">
 </p>
 
 
-# 서비스 로고
+## 서비스 로고
 <p align="center">
   <img src="https://github.com/joshyeom/how-weather-front/assets/105287510/6aebe39f-351e-47e9-98ce-36adab978963" alt="서비스 로고" width="200px" height="200px"/>
 </p>
