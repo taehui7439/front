@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import RecommendClothes from '../../layouts/recommendClothes/recommendClothes';
+import Weather from '../../components/weather/weather';
 import WeatherTime from '../../layouts/weatherTime/weatherTime';
 import { WeatherApi } from '../../apis/weatherApi';
+
 
 const MainPage = () => {
   const [weather, setWeather] = useState(null);
@@ -16,8 +18,11 @@ const MainPage = () => {
 
   return (
     <>
+      <Weather />
+      <RecommendClothes info={info} />
       {weather && <WeatherTime weather={weather} />}
       {weather && <RecommendClothes weather={weather} />}
+
     </>
   );
 };
