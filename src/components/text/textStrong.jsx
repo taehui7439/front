@@ -1,6 +1,6 @@
-import * as SC from "./styled";
+import * as SC from './styled';
 
-export const TextStrong = ({ children }) => {
+const TextStrong = ({ children }) => {
   return <SC.Strong>{children}</SC.Strong>;
 };
 

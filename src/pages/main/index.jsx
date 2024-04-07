@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import RecommendClothes from '../../layouts/recommendClothes/recommendClothes';
+import Weather from '../../components/weather/weather';
+import WeatherTime from '../../layouts/weatherTime/weatherTime';
+import { WeatherApi } from '../../apis/weatherApi';
+
 
 const MainPage = () => {
-  const info = {
-    성별: '남성',
-    나이: '10대',
-    체질: '평균',
-    날씨: '봄',
-    강수: false,
-    미세먼지: true,
-  };
+  const [weather, setWeather] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await WeatherApi('get');
+      setWeather(data?.response.body.items.item);
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
+      <Weather />
       <RecommendClothes info={info} />
+      {weather && <WeatherTime weather={weather} />}
+      {weather && <RecommendClothes weather={weather} />}
+
     </>
   );
 };
