@@ -1,13 +1,14 @@
-import styled from "styled-components";
+import { Colors } from '../../tokens/Colors';
+import styled from 'styled-components';
 
 export const Box = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 4px;
   width: 240px;
   height: 60px;
-  background: #f6f7fa;
+  background: ${Colors.BG};
   border-radius: 4px;
 `;
