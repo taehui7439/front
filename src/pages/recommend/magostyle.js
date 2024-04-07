@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import {Fonts} from '../../tokens/Fonts';
 
 export const Base = styled.div`
     max-width: 390px;
     background-color: aliceblue;
+    overflow:hidden;
 `
 export const Top = styled.div`  
     position: relative;
@@ -26,17 +28,11 @@ export const HeaderTitle = styled.div`
     top : 15px;
     left: 50%;
     transform: translate(-50%, 0);
-    font-size: 18px;
-    font-weight: 600;
+    ${Fonts['font-semi-18']};
 `
-export const Codicard = styled.div`
-    width: 143px;    
-    height: 191px;
-    box-sizing: border-box;
-    margin-right : 10px;
-    text-align :center;
-    border-radius: 10px;
-    overflow: hidden;
+export const codiImgbox = styled.div`
+    width : 142px;
+    height : 190px;
 `
 export const ImgSize = styled.img`
     width: 100%;
@@ -45,7 +41,8 @@ export const ImgSize = styled.img`
 export const Title = styled.div`
     fonst-size : 18px;
     font-weight : 600;
-    margin : 35px 16px 15px 16px;
+    margin : 0 16px 15px 16px;
+    padding-top : 10px;
 `
 export const SlickSlider = styled.div`
     height : 192px;
