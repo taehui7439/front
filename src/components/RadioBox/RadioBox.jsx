@@ -54,7 +54,7 @@ const Label = styled.label`
 `
 
 
-const RadioBox = ({list, keyword, column}) => {
+const RadioBox = ({list, category, column}) => {
     return(
         <Container column={column}>
              {list ? list.map((item, idx) => (
@@ -62,7 +62,7 @@ const RadioBox = ({list, keyword, column}) => {
                         <CustomRadio 
                             id={item} 
                             type="radio"
-                            name={keyword} 
+                            name={category} 
                             value={item} 
                         />
                         <Label htmlFor={item}>
