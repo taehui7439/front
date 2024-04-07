@@ -15,7 +15,7 @@ export const Clothes = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width 100%;
+  width: 100%;
 `;
 
 export const Tip = styled.div`
