@@ -7,11 +7,11 @@ export const WEATHER_IMAGE = {
 };
 
 export const WEATHER_TEXT = {
-  구름많음: '/images/littlecloud.svg',
-  맑음: '/images/sun.svg',
-  흐림: '/images/cloud.svg',
-  눈: '/images/snow.svg',
-  비: '/images/rain.svg',
+  구름많음: '구름이 이쁘네요.',
+  맑음: '산책 즐기기 좋은 날씨네요.',
+  흐림: '날씨가 흐려도 괜찮아요.',
+  눈: '빙판길 조심하세요!',
+  비: '우산을 챙겨주세요!',
 };
 
 export const CLOTHES_IMAGE = {

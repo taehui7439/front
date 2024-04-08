@@ -1,23 +1,21 @@
 import { useEffect, useRef } from 'react';
-import { WEATHER_TEXT } from '../../utils/constant';
+import { WEATHER_IMAGE } from '../../utils/constant';
 import ApexCharts from 'apexcharts';
 import * as SC from './styled';
 
 const WeatherTime = ({ weather }) => {
-  //테스트 중 ...
-  //const weatherCurrent = weather.filter((item, index) => index % 10 === 0);
-  const weatherCurrent = weather?.filter((item, index) => index < 24);
+  const currentDate = new Date();
+  console.log(currentDate.getHours());
+  const weatherCurrent = weather?.filter(
+    (item, index) =>
+      index >= currentDate.getHours() && index <= currentDate.getHours() + 23
+  );
+  //const weatherCurrent = weather?.filter((item, index) => index < 24);
   const weatherTemp = weatherCurrent?.map((item) => item.degree);
   const weatherTime = weatherCurrent?.map((item) => item.time);
   const weatherCloud = weatherCurrent?.map((item) => item.weather);
 
   const chartRef = useRef(null);
-
-  weatherCloud.forEach((cloud) => {
-    console.log(WEATHER_TEXT[cloud]); // 현재 구름 요소에 대한 작업 수행
-  });
-
-  console.log(weather);
 
   useEffect(() => {
     const options = {
@@ -111,7 +109,7 @@ const WeatherTime = ({ weather }) => {
         {weatherCloud.map((cloud, index) => (
           <SC.WeatherImage
             key={index}
-            src={WEATHER_TEXT[cloud]}
+            src={WEATHER_IMAGE[cloud]}
             alt={`${cloud} 이미지`}
           />
         ))}
