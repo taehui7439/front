@@ -6,7 +6,7 @@ import { Space } from '../../tokens/Space';
 export const Main = styled.main`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: ${Space.regularX};
 `;
 
 export const Section = styled.section`

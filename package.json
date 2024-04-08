@@ -12,6 +12,7 @@
     "react-router-dom": "^6.22.3",
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.8",
+    "vercel": "^33.7.0",
     "url": "^0.11.3",
     "util": "^0.12.5",
     "web-vitals": "^2.1.4"

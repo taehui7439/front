@@ -1,27 +1,65 @@
-import React ,{useState}from 'react';
+import React, {useState} from 'react';
 import CheckIcon from './CheckIcon';
 import * as SC from "./styled"
+import { SubmitBox } from "../../components/SubmitBox/SubmitBox";
 
 const IntroPage = () => {
     const [gender, setGender] = useState({male: false, feMale: false})
+    const [age, setAge] = useState({age10: false, age2030: false, age40: false})
+    const [body, setBody] = useState({hot: false, normal: false, cold: false})
 
-    const genderHandler = (key) => {
-        setGender(!gender[key])
-    }
+    const genderHandler = (selectedGender) => {
+        if (selectedGender === "male") {
+            setGender({ male: true, female: false });
+        } else {
+            setGender({ male: false, female: true });
+        }
+    };
 
+    const ageHandler = (selectedAge) => {
+        switch(selectedAge){
+            case "age10":
+                setAge({age10: true, age2030: false, age40: false})
+                break;
+            case "age2030":
+                setAge({age10: false, age2030: true, age40: false})
+                break;
+            case "age40":
+                setAge({age10: false, age2030: false, age40: true})
+                break;
+            default :setAge({age10: false, age2030: false, age40: false})
+                break;
+        }
+    };
+
+    const bodyHandler = (selectedBody) => {
+        switch(selectedBody){
+            case "hot":
+                setBody({hot: true, normal: false, cold: false})
+                break;
+            case "normal":
+                setBody({hot: false, normal: true, cold: false})
+                break;
+            case "cold":
+                setBody({hot: false, normal: false, cold: true})
+                break;
+            default :setBody({hot: false, normal: false, cold: false})
+                break;
+        }
+    };
 
     return (
         <SC.Main>
             <SC.Section>
                 <SC.Title>성별을 알려주세요</SC.Title>
                 <SC.Article>
-                    <SC.CheckBox onClick={() => genderHandler("male")} isClick={gender["male"]}>
-                        <CheckIcon></CheckIcon>
+                    <SC.CheckBox onClick={() => genderHandler("male")} isClick={gender.male}>
+                        <CheckIcon isClick={gender.male}></CheckIcon>
                         <img src="/images/남성.png" alt="남성" />
                         <SC.ContentText>남성</SC.ContentText>
                     </SC.CheckBox>
-                    <SC.CheckBox onClick={() => genderHandler("male")} isClick={gender["male"]}>
-                        <CheckIcon></CheckIcon>
+                    <SC.CheckBox onClick={() => genderHandler("female")} isClick={gender.female}>
+                        <CheckIcon isClick={gender.female}></CheckIcon>
                         <img src="/images/여성.png" alt="여성" />
                         <SC.ContentText>여성</SC.ContentText>
                     </SC.CheckBox>
@@ -30,16 +68,16 @@ const IntroPage = () => {
             <SC.Section>
                 <SC.Title>나이를 설정해주세요</SC.Title>
                 <SC.Article>
-                    <SC.CheckBox>
-                        <CheckIcon></CheckIcon>
+                    <SC.CheckBox onClick={() => ageHandler("age10")} isClick={age.age10}>
+                        <CheckIcon isClick={age.age10}></CheckIcon>
                         <SC.ContentText>10대</SC.ContentText>
                     </SC.CheckBox>
-                    <SC.CheckBox>
-                        <CheckIcon></CheckIcon>
+                    <SC.CheckBox onClick={() => ageHandler("age2030")} isClick={age.age2030}>
+                        <CheckIcon isClick={age.age2030}></CheckIcon>
                         <SC.ContentText>20대-30대</SC.ContentText>
                     </SC.CheckBox>
-                    <SC.CheckBox>
-                        <CheckIcon></CheckIcon>
+                    <SC.CheckBox onClick={() => ageHandler("age40")} isClick={age.age40}>
+                        <CheckIcon isClick={age.age40}></CheckIcon>
                         <SC.ContentText>40대 이상</SC.ContentText>
                     </SC.CheckBox>
                 </SC.Article>
@@ -47,21 +85,21 @@ const IntroPage = () => {
             <SC.Section>
                 <SC.Title>체질을 설정해주세요</SC.Title>
                 <SC.Article>
-                    <SC.CheckBox>
-                        <CheckIcon></CheckIcon>
+                <SC.CheckBox onClick={() => bodyHandler("hot")} isClick={body.hot}>
+                        <CheckIcon isClick={body.hot}></CheckIcon>
                         <SC.ContentText>더위를<br></br>많이타요</SC.ContentText>
                     </SC.CheckBox>
-                    <SC.CheckBox>
-                        <CheckIcon></CheckIcon>
+                    <SC.CheckBox onClick={() => bodyHandler("normal")} isClick={body.normal}>
+                        <CheckIcon isClick={body.normal}></CheckIcon>
                         <SC.ContentText>평균</SC.ContentText>
                     </SC.CheckBox>
-                    <SC.CheckBox>
-                        <CheckIcon></CheckIcon>
+                    <SC.CheckBox onClick={() => bodyHandler("cold")} isClick={body.cold}>
+                        <CheckIcon isClick={body.cold}></CheckIcon>
                         <SC.ContentText>추위를<br></br>많이타요</SC.ContentText>
                     </SC.CheckBox>
                 </SC.Article>
             </SC.Section>
-            <SC.SubmitBox>완료</SC.SubmitBox>
+            <SubmitBox>완료</SubmitBox>
         </SC.Main>
     )
 };
