@@ -21,26 +21,24 @@ const BottomSheet = ({isModal, setIsModal}) => {
                     <SC.CategoryText>오후</SC.CategoryText>
                     <SC.CategoryText>최저/최고기온</SC.CategoryText>
                 </SC.Category>
+                <SC.Line/>
                 <SC.DayList>
                     <SC.DayWeather>
                         <SC.DayBox>
-                            <SC.Day></SC.Day>
-                            <SC.Date></SC.Date>
+                            <SC.Day>일</SC.Day>
+                            <SC.Date>4.07</SC.Date>
                         </SC.DayBox>
-                        <SC.TimeBox>
-                            <SC.Morning></SC.Morning>
-                            <SC.AfterNoon></SC.AfterNoon>
-                        </SC.TimeBox>
+                        <SC.Morning>0%</SC.Morning>
+                        <SC.AfterNoon>0%</SC.AfterNoon>
                         <SC.TempBox>
-                            <SC.Lowest></SC.Lowest>
-                            <SC.Highest></SC.Highest>
+                            <SC.Lowest>최저8</SC.Lowest>
+                            <SC.Highest>최고24</SC.Highest>
                         </SC.TempBox>
                     </SC.DayWeather>
                 </SC.DayList>
             </SC.Section>
         </SC.Main>
     </>
-
     ,
     modalRoot
   );

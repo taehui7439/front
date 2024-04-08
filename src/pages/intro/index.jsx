@@ -3,13 +3,38 @@ import CheckIcon from './CheckIcon';
 import * as SC from "./styled"
 import { SubmitBox } from "../../components/SubmitBox/SubmitBox";
 import { useNavigate } from 'react-router-dom';
+// import axios from "axios"
+
 const IntroPage = () => {
     const navigate = useNavigate();
     const [gender, setGender] = useState({male: false, feMale: false})
     const [age, setAge] = useState({age10: false, age2030: false, age40: false})
     const [body, setBody] = useState({hot: false, normal: false, cold: false})
     
+    const fetchData = async () => {
+        try {
+            const response = await fetch('weather-infomation', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': 'true',
+              },
+              body: JSON.stringify({
+                keyword: '서울시',
+              }),
+            });
+        
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+        
+            console.log(response)
+          } catch (error) {
+            throw new Error(error.message);
+          }
+      };
 
+      fetchData()
 
     const genderHandler = (selectedGender) => {
         if (selectedGender === "male") {

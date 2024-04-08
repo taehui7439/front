@@ -1,4 +1,6 @@
 import { styled } from 'styled-components';
+import { Colors } from '../../tokens/Colors';
+// import { Space } from "../../tokens/"
 
 export const Main = styled.main`
   max-width: 390px;
@@ -37,27 +39,54 @@ export const Header = styled.header`
 
 export const Section = styled.section`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Category = styled.section`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 10px;
+`;
+
+export const Line = styled.div`
+  width: 90%;
+  height: 2px;
+  background-color: ${Colors.line01};
+  margin-bottom: 10px;
 `;
 
 export const CategoryText = styled.span``;
 
-export const DayList = styled.ul``;
+export const DayList = styled.ul`
+  width: 100%;
+`;
 
-export const DayWeather = styled.li``;
+export const DayWeather = styled.li`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 10px;
+`;
 
-export const DayBox = styled.article``;
+export const DayBox = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const Day = styled.span``;
 
 export const Date = styled.span``;
 
-export const TimeBox = styled.article``;
+export const TimeBox = styled.article`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const Morning = styled.div``;
 
