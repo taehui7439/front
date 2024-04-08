@@ -1,21 +1,23 @@
-import { styled } from "styled-components"
-import { Colors } from "../../tokens/Colors";
+import { styled } from 'styled-components';
+import { Colors } from '../../tokens/Colors';
+import { Fonts } from '../../tokens/Fonts';
 
 export const Button = styled.button`
   cursor: pointer;
-  background-color: ${Colors.line01};
+  background-color: ${Colors.line03};
   border: none;
-  width: 358px;
   height: 59px;
+  margin: 0 20px;
   border-radius: 6px;
   color: white;
   transition: 0.2s ease-in-out;
+  ${Fonts['font-semi-18']};
 
   &:hover {
     background-color: ${Colors.main02};
   }
 `;
 
-export const SubmitBox = ({children, onClick}) => {
-    return <Button onClick={onClick}>{children}</Button>
-}
+export const SubmitBox = ({ children, onClick }) => {
+  return <Button onClick={onClick}>{children}</Button>;
+};
