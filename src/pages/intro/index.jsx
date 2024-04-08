@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import CheckIcon from './CheckIcon';
 import * as SC from "./styled"
 import { SubmitBox } from "../../components/SubmitBox/SubmitBox";
-
+import { useNavigate } from 'react-router-dom';
 const IntroPage = () => {
+    const navigate = useNavigate();
     const [gender, setGender] = useState({male: false, feMale: false})
     const [age, setAge] = useState({age10: false, age2030: false, age40: false})
     const [body, setBody] = useState({hot: false, normal: false, cold: false})
@@ -48,6 +49,10 @@ const IntroPage = () => {
         }
     };
 
+    const routeHandler = () => {
+        navigate('/home');
+    }
+
     return (
         <SC.Main>
             <SC.Section>
@@ -55,12 +60,12 @@ const IntroPage = () => {
                 <SC.Article>
                     <SC.CheckBox onClick={() => genderHandler("male")} isClick={gender.male}>
                         <CheckIcon isClick={gender.male}></CheckIcon>
-                        <img src="/images/남성.png" alt="남성" />
+                        <img src="/images/male.png" alt="male" />
                         <SC.ContentText>남성</SC.ContentText>
                     </SC.CheckBox>
                     <SC.CheckBox onClick={() => genderHandler("female")} isClick={gender.female}>
                         <CheckIcon isClick={gender.female}></CheckIcon>
-                        <img src="/images/여성.png" alt="여성" />
+                        <img src="/images/female.png" alt="female" />
                         <SC.ContentText>여성</SC.ContentText>
                     </SC.CheckBox>
                 </SC.Article>
@@ -99,7 +104,7 @@ const IntroPage = () => {
                     </SC.CheckBox>
                 </SC.Article>
             </SC.Section>
-            <SubmitBox>완료</SubmitBox>
+            <SubmitBox onClick={routeHandler}>완료</SubmitBox>
         </SC.Main>
     )
 };
