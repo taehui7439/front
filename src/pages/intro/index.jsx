@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CheckIcon from './CheckIcon';
 import * as SC from "./styled"
 import { SubmitBox } from "../../components/SubmitBox/SubmitBox";
@@ -75,6 +75,31 @@ const IntroPage = () => {
                 break;
         }
     };
+
+     useEffect(() => {
+        Object.keys(gender).forEach(key => {
+            if (gender[key]) {
+                saveToLocal('gender', key);
+            }
+        });
+
+        Object.keys(age).forEach(key => {
+            if (age[key]) {
+                saveToLocal('age', key);
+            }
+        });
+
+        Object.keys(body).forEach(key => {
+            if (body[key]) {
+                saveToLocal('body', key);
+            }
+        });
+    }, [gender, age, body]);
+
+    const saveToLocal = (key, value) => {
+        localStorage.setItem(key, value);
+    };
+
 
     const routeHandler = () => {
         navigate('/home');
