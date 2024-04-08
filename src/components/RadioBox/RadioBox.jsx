@@ -33,7 +33,7 @@ const Label = styled.label`
   font-family: ${Fonts['font-medium-14'].fontFamily};
 `;
 
-const RadioBox = ({ list, category, column }) => {
+const RadioBox = ({ list, category, column, value}) => {
   const [selectedItems, setSelectedItems] = useState([list]);
 
   const handleItemToggle = (item) => {
@@ -43,6 +43,11 @@ const RadioBox = ({ list, category, column }) => {
       setSelectedItems([item]);
     }
   };
+
+  const saveToLocal = (category, value) => {
+    localStorage.setItem(category, value);
+};
+
   return (
     <Container $column={column}>
       {list
@@ -51,6 +56,7 @@ const RadioBox = ({ list, category, column }) => {
               key={idx}
               onClick={() => {
                 handleItemToggle(item);
+                saveToLocal(category, value[idx])
               }}
               $body={category === 'body' && true}
               $lastItem={idx === list.length - 1}

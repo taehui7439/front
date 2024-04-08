@@ -11,7 +11,17 @@ const IntroPage = () => {
     const [gender, setGender] = useState({male: false, feMale: false})
     const [age, setAge] = useState({age10: false, age2030: false, age40: false})
     const [body, setBody] = useState({hot: false, normal: false, cold: false})
+    const [loading, setLoading] = useState(true);
     
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setLoading(false);
+        }, 3000);
+    
+        return () => clearTimeout(timer);
+      }, []);
+
+
     const fetchData = async () => {
         try {
             const response = await fetch('weather-infomation', {
@@ -36,15 +46,8 @@ const IntroPage = () => {
       };
 
       fetchData()
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  
 
   const genderHandler = (selectedGender) => {
     if (selectedGender === 'male') {
