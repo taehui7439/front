@@ -19,7 +19,6 @@ const MainPage = () => {
     <>
       {weather && <WeatherTime weather={weather} />}
       {weather && <RecommendClothes weather={weather} />}
-
     </>
   );
 };

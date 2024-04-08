@@ -48,6 +48,5 @@
   },
   "devDependencies": {
     "prettier": "^3.2.5"
-  },
-  "proxy": "https://asia-northeast3-kskim-archive.cloudfunctions.net/"
+  }
 }

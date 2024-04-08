@@ -13,12 +13,9 @@ const MainPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post(
-          'https://asia-northeast3-kskim-archive.cloudfunctions.net/weather-infomation',
-          {
-            keyword: '서울시',
-          }
-        );
+        const response = await axios.post('weather-infomation', {
+          keyword: '서울시',
+        });
         console.log(response.data); // 데이터 출력
       } catch (error) {
         console.error('Error fetching data:', error);

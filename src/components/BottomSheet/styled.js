@@ -94,6 +94,10 @@ export const AfterNoon = styled.div``;
 
 export const TempBox = styled.article``;
 
-export const Lowest = styled.span``;
+export const Lowest = styled.span`
+  color: ${Colors.main01};
+`;
 
-export const Highest = styled.span``;
+export const Highest = styled.span`
+  color: ${Colors.red01};
+`;

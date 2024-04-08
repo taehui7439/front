@@ -1,10 +1,14 @@
 import ReactDOM from 'react-dom';
 import Filter from "./Filter"
 import * as SC from "./styled"
+import { weatherData } from "./weekWeather";
+// import { useState } from "react";
 
 
 const BottomSheet = ({isModal, setIsModal}) => {
+    // const dataWeather = useState(weatherData)
   const modalRoot = document.getElementById('modal-root');
+
 
   return ReactDOM.createPortal(
     <>
@@ -23,18 +27,21 @@ const BottomSheet = ({isModal, setIsModal}) => {
                 </SC.Category>
                 <SC.Line/>
                 <SC.DayList>
-                    <SC.DayWeather>
-                        <SC.DayBox>
-                            <SC.Day>일</SC.Day>
-                            <SC.Date>4.07</SC.Date>
-                        </SC.DayBox>
-                        <SC.Morning>0%</SC.Morning>
-                        <SC.AfterNoon>0%</SC.AfterNoon>
-                        <SC.TempBox>
-                            <SC.Lowest>최저8</SC.Lowest>
-                            <SC.Highest>최고24</SC.Highest>
-                        </SC.TempBox>
-                    </SC.DayWeather>
+                    {weatherData ? weatherData.map(data => (
+                        <SC.DayWeather key={data.date}>
+                            <SC.DayBox>
+                                <SC.Day>{data.day}</SC.Day>
+                                <SC.Date>{data.date}</SC.Date>
+                            </SC.DayBox>
+                            <SC.Morning>{data.morning}</SC.Morning>
+                            <SC.AfterNoon>{data.afternoon}</SC.AfterNoon>
+                            <SC.TempBox>
+                                <SC.Lowest>{data.lowest}</SC.Lowest> / 
+                                <SC.Highest>{data.highest}</SC.Highest>
+                            </SC.TempBox>
+                        </SC.DayWeather>
+                        ))
+                    : null}
                 </SC.DayList>
             </SC.Section>
         </SC.Main>
