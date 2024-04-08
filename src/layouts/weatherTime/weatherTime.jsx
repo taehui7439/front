@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { WEATHER_TEXT } from '../../utils/constant';
 import ApexCharts from 'apexcharts';
 import * as SC from './styled';
 
@@ -11,6 +12,12 @@ const WeatherTime = ({ weather }) => {
   const weatherCloud = weatherCurrent?.map((item) => item.weather);
 
   const chartRef = useRef(null);
+
+  weatherCloud.forEach((cloud) => {
+    console.log(WEATHER_TEXT[cloud]); // 현재 구름 요소에 대한 작업 수행
+  });
+
+  console.log(weather);
 
   useEffect(() => {
     const options = {
@@ -104,8 +111,8 @@ const WeatherTime = ({ weather }) => {
         {weatherCloud.map((cloud, index) => (
           <SC.WeatherImage
             key={index}
-            src="/images/맑은날_낮.svg"
-            alt="맑음 이미지"
+            src={WEATHER_TEXT[cloud]}
+            alt={`${cloud} 이미지`}
           />
         ))}
       </SC.WeatherCloud>
