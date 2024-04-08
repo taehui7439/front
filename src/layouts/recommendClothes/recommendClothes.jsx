@@ -2,34 +2,32 @@ import TextStrong from '../../components/text/textStrong.jsx';
 import TextLink from '../../components/text/textLink.jsx';
 import CardItem from '../../components/card/cardItem';
 import BoxAccessory from '../../components/box/boxAccessory.jsx';
-import { CLOTHES_IMAGE } from '../../utils/constant.js';
+import { CLOTHES_IMAGE, WEATHER_IMAGE } from '../../utils/constant.js';
 import * as SC from './styled';
 
 const RecommendClothes = ({ weather }) => {
-  const weatherCurrent = [...weather].filter((item, index) => {
-    return index % 6 === 0;
-  });
+  const season = (temp) => {
+    if (temp >= 22) {
+      return '여름';
+    } else if (temp >= 16) {
+      return '봄';
+    } else if (temp >= 11) {
+      return '가을';
+    } else {
+      return '겨울';
+    }
+  };
 
-  let season;
-
-  if (weatherCurrent?.[4].fcstValue >= 22) {
-    season = '여름';
-  } else if (weatherCurrent?.[4].fcstValue >= 16) {
-    season = '봄';
-  } else if (weatherCurrent?.[4].fcstValue >= 11) {
-    season = '가을';
-  } else {
-    season = '겨울';
-  }
+  console.log(localStorage.getItem('gender'));
 
   const info = {
-    성별: '남성',
+    성별: localStorage.getItem('gender') === 'male' ? '남성' : '여성',
     나이: '10대',
     체질: '평균',
-    날씨: season,
-    온도: weatherCurrent[4].fcstValue,
-    강수: weatherCurrent[2].fcstValue,
-    미세먼지: true,
+    날씨: weather.today.today_weather,
+    온도: season(weather.today.temp.replace('°', '')),
+    미세먼지: weather.today.pm10,
+    자외선: weather.today.uv,
   };
 
   return (
@@ -39,7 +37,7 @@ const RecommendClothes = ({ weather }) => {
         <TextLink to="/recommend">{'더보기 >'}</TextLink>
       </SC.Recommend>
       <SC.Clothes>
-        {info.날씨 === '여름' ? null : (
+        {info.온도 === '여름' ? null : (
           <>
             <CardItem
               src={CLOTHES_IMAGE[info.성별].OUTER}
@@ -66,26 +64,14 @@ const RecommendClothes = ({ weather }) => {
       </SC.Clothes>
       <TextStrong>오늘의 날씨 팁</TextStrong>
       <SC.Tip>
-        {info.강수 !== '강수없음' && (
-          <SC.Accessory>
-            <CardItem
-              src={CLOTHES_IMAGE[info.성별].UMBRELLA}
-              info={info}
-              alt="우산 이미지"
-            />
-            <BoxAccessory item="UMBRELLA" info={info} />
-          </SC.Accessory>
-        )}
-        {info.미세먼지 && (
-          <SC.Accessory>
-            <CardItem
-              src={CLOTHES_IMAGE[info.성별].MASK}
-              info={info}
-              alt="마스크 이미지"
-            />
-            <BoxAccessory item="MASK" info={info} />
-          </SC.Accessory>
-        )}
+        <SC.Accessory>
+          <CardItem
+            src={WEATHER_IMAGE[info.날씨]}
+            info={info}
+            alt={`${info.날씨} 이미지`}
+          />
+          <BoxAccessory info={info} />
+        </SC.Accessory>
       </SC.Tip>
     </SC.CardList>
   );
