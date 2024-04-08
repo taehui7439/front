@@ -1,80 +1,83 @@
-import React from "react"
-import { styled } from "styled-components"
-import { Colors } from "../../tokens/Colors"
-import { Fonts } from "../../tokens/Fonts";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/jsx-no-comment-textnodes */
+import React, { useState } from 'react';
+import { styled } from 'styled-components';
+import { Colors } from '../../tokens/Colors';
+import { Fonts } from '../../tokens/Fonts';
 
 const Container = styled.section`
-    background-color: ${Colors.BG};
-    padding: 20px 16px;
-    display: flex;
-    flex-direction: ${({column}) => column ? "column" : "row"};
-    gap: ${({column}) => column ? "10px" : "20px"};
+  background-color: ${Colors.BG};
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: ${({ $column }) => ($column ? 'column' : 'row')};
+  gap: ${({ $column }) => ($column ? '12px' : '36px')};
+  border-radius: 6px;
 `;
-
-
-const CustomRadio = styled.input`
-    display: none;
-    + label::before {
-        content: "";
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        border: 1px solid ${Colors.line03};
-        background-color: ${({ isChecked }) => (isChecked ? Colors.main02 : "white")};
-        margin-right: 10px;
-    }
-    
-    &:checked + label::before {
-        background-color: ${Colors.main02};
-    }
-`;
-
-// const InnerCircle = styled.div`
-//     position: absolute;
-//     top: 0;
-//     left: 10%;
-//     transform: translate(-50%, -50%);
-//     width: 8px;
-//     height: 8px;
-//     border-radius: 50%;
-//     background-color: black;
-// `;
-
 
 const ItemBox = styled.div`
-    position: relative;
-`
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0 8px;
+  cursor: pointer;
+  padding-bottom: ${({ $body, $lastItem }) => !$lastItem && $body && '12px'};
+  border-bottom: ${({ $body }) => $body && `1px solid ${Colors.line01}`};
+  ${({ $lastItem }) => $lastItem && 'border-bottom: none;'}
+`;
 
 const Label = styled.label`
-    font-size: ${Fonts["font-medium-14"].fontSize};
-    font-weight: ${Fonts["font-medium-14"].fontWeight};
-    line-height: ${Fonts["font-medium-14"].lineHeight};
-    font-family: ${Fonts["font-medium-14"].fontFamily};
-`
+  cursor: pointer;
+  font-size: ${Fonts['font-medium-14'].fontSize};
+  font-weight: ${Fonts['font-medium-14'].fontWeight};
+  line-height: ${Fonts['font-medium-14'].lineHeight};
+  font-family: ${Fonts['font-medium-14'].fontFamily};
+`;
 
+const RadioBox = ({ list, category, column }) => {
+  const [selectedItems, setSelectedItems] = useState([list]);
 
-const RadioBox = ({list, category, column}) => {
-    return(
-        <Container column={column}>
-             {list ? list.map((item, idx) => (
-                <ItemBox key={idx}> 
-                        <CustomRadio 
-                            id={item} 
-                            type="radio"
-                            name={category} 
-                            value={item} 
-                        />
-                        <Label htmlFor={item}>
-                            {item}
-                            {/* <InnerCircle/> */}
-                        </Label>
-                </ItemBox>
-            ))
-            : null
-        }
-        </Container>
-    )
-}
+  const handleItemToggle = (item) => {
+    const isSelected = selectedItems.includes(item);
 
-export default RadioBox
+    if (!isSelected) {
+      setSelectedItems([item]);
+    }
+  };
+  return (
+    <Container $column={column}>
+      {list
+        ? list.map((item, idx) => (
+            <ItemBox
+              key={idx}
+              onClick={() => {
+                handleItemToggle(item);
+              }}
+              $body={category === 'body' && true}
+              $lastItem={idx === list.length - 1}
+            >
+              <div
+                onKeyDown={(e) => {
+                  /* 키보드 이벤트 처리 */
+                  if (e.key === 'Enter') {
+                    handleItemToggle(item);
+                  }
+                }}
+              >
+                {selectedItems.includes(item) ? (
+                  <img src="images/icon_radio_checed.png" alt="icon" />
+                ) : (
+                  <img src="images/icon_radio_uncheced.png" alt="icon" />
+                )}
+              </div>
+              <Label htmlFor={item}>
+                {item}
+                {/* <InnerCircle/> */}
+              </Label>
+            </ItemBox>
+          ))
+        : null}
+    </Container>
+  );
+};
+
+export default RadioBox;
