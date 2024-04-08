@@ -8,6 +8,8 @@ const IntroPage = () => {
     const [gender, setGender] = useState({male: false, feMale: false})
     const [age, setAge] = useState({age10: false, age2030: false, age40: false})
     const [body, setBody] = useState({hot: false, normal: false, cold: false})
+    
+
 
     const genderHandler = (selectedGender) => {
         if (selectedGender === "male") {

@@ -6,8 +6,6 @@ import * as SC from "./styled"
 const BottomSheet = ({isModal, setIsModal}) => {
   const modalRoot = document.getElementById('modal-root');
 
-
-
   return ReactDOM.createPortal(
     <>
         <Filter isModal={isModal}/>

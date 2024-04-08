@@ -18,8 +18,6 @@ const MainPage = () => {
 
   return (
     <>
-      <Weather />
-      <RecommendClothes weather={weather} />
       {weather && <WeatherTime weather={weather} />}
       {weather && <RecommendClothes weather={weather} />}
 
