@@ -2,25 +2,17 @@ import React, { useState, useEffect } from 'react';
 import RecommendClothes from '../../layouts/recommendClothes/recommendClothes';
 import Weather from '../../components/weather/weather';
 //import WeatherTime from '../../layouts/weatherTime/weatherTime';
-import BottomSheet from '../../components/BottomSheet/BottomSheet';
-import axios from 'axios';
+import { WeatherApi } from '../../apis/weatherApi';
 
 const MainPage = () => {
   const [weather, setWeather] = useState(null);
-  const [isModal, setIsModal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.post('weather-infomation', {
-          keyword: '서울시',
-        });
-        setWeather(response.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+      const data = await WeatherApi();
+      setWeather(data);
+      //setWeather(data?.response.body.items.item);
     };
-
     fetchData();
   }, []);
 
@@ -28,10 +20,9 @@ const MainPage = () => {
 
   return (
     <>
-      <Weather isModal={isModal} setIsModal={setIsModal} />
+      <Weather />
       {/*weather && <WeatherTime weather={weather} />*/}
       {weather && <RecommendClothes weather={weather} />}
-      <BottomSheet isModal={isModal} setIsModal={setIsModal}></BottomSheet>
     </>
   );
 };
