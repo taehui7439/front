@@ -4,11 +4,11 @@ import { Fonts } from '../../tokens/Fonts';
 
 export const Button = styled.button`
   cursor: pointer;
-  width: 100%;
+  width: calc(100% - 40px);
+  margin: 0 auto;
   background-color: ${Colors.line03};
   border: none;
   height: 59px;
-  margin: 0 20px;
   border-radius: 6px;
   color: white;
   transition: 0.2s ease-in-out;
