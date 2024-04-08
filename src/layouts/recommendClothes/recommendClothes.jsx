@@ -6,16 +6,6 @@ import { CLOTHES_IMAGE, WEATHER_IMAGE } from '../../utils/constant.js';
 import * as SC from './styled';
 
 const RecommendClothes = ({ weather }) => {
-  /*
-  "today_weather": "구름많음",
-  "temp": "15.2°", 
-  "yesterday_summary": "어제보다 3.6° 높아요",
-  "temp_feel": "15.2°",
-  "humidity": "83%",
-  "pm10": "보통",
-  "uv": "보통"
-  */
-
   const season = (temp) => {
     if (temp >= 22) {
       return '여름';
@@ -28,8 +18,10 @@ const RecommendClothes = ({ weather }) => {
     }
   };
 
+  console.log(localStorage.getItem('gender'));
+
   const info = {
-    성별: '남성',
+    성별: localStorage.getItem('gender') === 'male' ? '남성' : '여성',
     나이: '10대',
     체질: '평균',
     날씨: weather.today.today_weather,

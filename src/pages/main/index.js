@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import RecommendClothes from '../../layouts/recommendClothes/recommendClothes';
 import Weather from '../../components/weather/weather';
-//import WeatherTime from '../../layouts/weatherTime/weatherTime';
+import WeatherTime from '../../layouts/weatherTime/weatherTime';
 import BottomSheet from '../../components/BottomSheet/BottomSheet';
 import axios from 'axios';
 
 const MainPage = () => {
-  const [weather, setWeather] = useState(null);
+  const [weather, setWeather] = useState({
+    mock: null,
+    info: null,
+  });
   const [isModal, setIsModal] = useState(false);
 
   useEffect(() => {
@@ -15,22 +18,36 @@ const MainPage = () => {
         const response = await axios.post('weather-infomation', {
           keyword: '서울시',
         });
-        setWeather(response.data);
+        setWeather((prev) => ({
+          ...prev,
+          info: response.data,
+        }));
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    const fetchData2 = async () => {
+      try {
+        const response = await axios.get('/data/mock.json');
+        setWeather((prev) => ({
+          ...prev,
+          mock: response.data,
+        }));
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
+    fetchData2();
   }, []);
-
-  console.log(weather);
 
   return (
     <>
       <Weather isModal={isModal} setIsModal={setIsModal} />
-      {/*weather && <WeatherTime weather={weather} />*/}
-      {weather && <RecommendClothes weather={weather} />}
+      {weather.mock && <WeatherTime weather={weather.mock} />}
+      {weather.info && <RecommendClothes weather={weather.info} />}
       <BottomSheet isModal={isModal} setIsModal={setIsModal}></BottomSheet>
     </>
   );
