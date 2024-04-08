@@ -1,31 +1,31 @@
 export const WEATHER_IMAGE = {
-  구름많음: '/images/조금 흐림_낮.svg',
-  맑음: '/images/맑은날_낮.svg',
-  흐림: '/images/흐림_밤,낮.svg',
-  눈: '/images/눈_밤,낮.svg',
-  비: '/images/비_밤,낮.svg',
+  구름많음: '/images/littlecloud.svg',
+  맑음: '/images/sun.svg',
+  흐림: '/images/cloud.svg',
+  눈: '/images/snow.svg',
+  비: '/images/rain.svg',
 };
 
 export const WEATHER_TEXT = {
-  구름많음: '/images/조금 흐림_낮.svg',
-  맑음: '/images/맑은날_낮.svg',
-  흐림: '/images/흐림_밤,낮.svg',
-  눈: '/images/눈_밤,낮.svg',
-  비: '/images/비_밤,낮.svg',
+  구름많음: '/images/littlecloud.svg',
+  맑음: '/images/sun.svg',
+  흐림: '/images/cloud.svg',
+  눈: '/images/snow.svg',
+  비: '/images/rain.svg',
 };
 
 export const CLOTHES_IMAGE = {
   남성: {
-    TOP: '/images/상의.svg',
-    BOTTOM: '/images/하의.svg',
-    OUTER: '/images/아우터.svg',
-    MASK: '/images/마스크.svg',
+    TOP: '/images/shirt.svg',
+    BOTTOM: '/images/pants.svg',
+    OUTER: '/images/outer.svg',
+    MASK: '/images/mask.svg',
   },
   여성: {
-    TOP: '/images/상의여성.svg',
-    BOTTOM: '/images/하의여성.svg',
-    OUTER: '/images/아우터여성.svg',
-    MASK: '/images/마스크.svg',
+    TOP: '/images/shirtw.svg',
+    BOTTOM: '/images/pantsw.svg',
+    OUTER: '/images/outerw.svg',
+    MASK: '/images/mask.svg',
   },
 };
 
