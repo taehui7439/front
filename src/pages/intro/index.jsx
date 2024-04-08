@@ -25,30 +25,30 @@ const IntroPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch('weather-infomation', {
-  //         method: 'POST',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //           'Access-Control-Allow-Credentials': 'true',
-  //         },
-  //         body: JSON.stringify({
-  //           keyword: '서울시',
-  //         }),
-  //       });
+  const fetchData = async () => {
+    try {
+      const response = await fetch('weather-infomation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': 'true',
+        },
+        body: JSON.stringify({
+          keyword: '서울시',
+        }),
+      });
 
-  //       if (!response.ok) {
-  //         throw new Error('Network response was not ok');
-  //       }
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
 
-  //       console.log(response);
-  //     } catch (error) {
-  //       throw new Error(error.message);
-  //     }
-  //   };
+      console.log(response);
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  };
 
-  //   fetchData();
+  fetchData();
 
   const genderHandler = (selectedGender) => {
     if (selectedGender === 'male') {
