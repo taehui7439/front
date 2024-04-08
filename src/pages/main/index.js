@@ -1,19 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import RecommendClothes from '../../layouts/recommendClothes/recommendClothes';
+import Weather from '../../components/weather/weather';
+import WeatherTime from '../../layouts/weatherTime/weatherTime';
+import BottomSheet from '../../components/BottomSheet/BottomSheet';
+import axios from 'axios';
 
 const MainPage = () => {
-  const info = {
-    성별: '남성',
-    나이: '10대',
-    체질: '평균',
-    날씨: '봄',
-    강수: false,
-    미세먼지: true,
-  };
+  const [weather, setWeather] = useState({
+    mock: null,
+    info: null,
+  });
+  const [isModal, setIsModal] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post('weather-infomation', {
+          keyword: '서울시',
+        });
+        setWeather((prev) => ({
+          ...prev,
+          info: response.data,
+        }));
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    const fetchData2 = async () => {
+      try {
+        const response = await axios.get('/data/mock.json');
+        setWeather((prev) => ({
+          ...prev,
+          mock: response.data,
+        }));
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+    fetchData2();
+  }, []);
 
   return (
     <>
-      <RecommendClothes info={info} />
+      <Weather isModal={isModal} setIsModal={setIsModal} />
+      {weather.mock && <WeatherTime weather={weather.mock} />}
+      {weather.info && <RecommendClothes weather={weather.info} />}
+      <BottomSheet isModal={isModal} setIsModal={setIsModal}></BottomSheet>
     </>
   );
 };
