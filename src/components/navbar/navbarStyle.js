@@ -9,7 +9,7 @@ export const NavbarContainer = styled.nav`
 export const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   padding: 10px 20px 10px 50px;
 `;
 
@@ -18,9 +18,14 @@ export const NavLogo = styled.div`
 `;
 
 export const NavLocation = styled.div`
-  text-align: center;
+  display: flex;
+  justify-content: center;
 `;
 
-export const NavMenu = styled.div`
-  text-align: center;
+export const NavSelect = styled.div`
+  
+`;
+
+export const NavLoc = styled.div`
+  
 `;
