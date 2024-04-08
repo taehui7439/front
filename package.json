@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "apexcharts": "^3.48.0",
     "axios": "^1.6.8",
     "http-proxy-middleware": "^3.0.0",
     "react": "^18.2.0",
@@ -47,5 +48,6 @@
   },
   "devDependencies": {
     "prettier": "^3.2.5"
-  }
+  },
+  "proxy": "https://asia-northeast3-kskim-archive.cloudfunctions.net/"
 }
