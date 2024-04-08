@@ -4,6 +4,7 @@ import { Fonts } from '../../tokens/Fonts';
 
 export const Button = styled.button`
   cursor: pointer;
+  width: 100%;
   background-color: ${Colors.line03};
   border: none;
   height: 59px;
