@@ -2,12 +2,13 @@ import React from 'react';
 import * as SC from './weatherStyle';
 import { Fonts } from '../../tokens/Fonts';
 
-const Weather = () => {
+const Weather = ({isModal,setIsModal}) => {
+
 
 	return(
 		<SC.WeatherContainer>
 			<SC.WeatherMain>
-				<SC.ShowMore>
+				<SC.ShowMore onClick={() => setIsModal(!isModal)}>
 					<SC.MoreText fontStyle={Fonts['font-medium-12']}>
 						<span>더보기 {">"}</span>
 					</SC.MoreText>
