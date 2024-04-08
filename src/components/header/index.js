@@ -1,4 +1,5 @@
 import Navbar from '../navbar/navbar';
+
 import * as S from './style';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -13,6 +14,7 @@ const Header = () => {
   const handleMoveSetting = () => {
     navigate('/setting');
   };
+
 
   const onHeaderName = () => {
     switch (location.pathname) {
@@ -30,6 +32,7 @@ const Header = () => {
         return;
     }
   };
+
 
   return location.pathname === '/' ? null : (
     <S.Header>
