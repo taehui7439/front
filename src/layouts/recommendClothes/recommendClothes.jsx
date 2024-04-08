@@ -18,10 +18,10 @@ const RecommendClothes = ({ weather }) => {
     }
   };
 
-  localStorage.getItem('test');
+  console.log(localStorage.getItem('gender'));
 
   const info = {
-    성별: '남성',
+    성별: localStorage.getItem('gender') === 'male' ? '남성' : '여성',
     나이: '10대',
     체질: '평균',
     날씨: weather.today.today_weather,

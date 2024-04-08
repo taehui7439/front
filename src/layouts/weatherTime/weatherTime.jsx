@@ -5,7 +5,6 @@ import * as SC from './styled';
 
 const WeatherTime = ({ weather }) => {
   const currentDate = new Date();
-  console.log(currentDate.getHours());
   const weatherCurrent = weather?.filter(
     (item, index) =>
       index >= currentDate.getHours() && index <= currentDate.getHours() + 23
